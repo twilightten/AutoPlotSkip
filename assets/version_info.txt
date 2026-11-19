@@ -1,0 +1,35 @@
+# PyInstaller 版本资源（写入 exe 的「属性 → 详细信息」）。
+# 没有这个资源时 exe 的「发布者」一栏是空的，SmartScreen 更容易直接拦下来。
+# 生成一次即可，改了版本号重跑 tools/build_exe.py 就会用上新值。
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(0, 1, 0, 0),
+    prodvers=(0, 1, 0, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0),
+  ),
+  kids=[
+    StringFileInfo([
+      StringTable(
+        "080404B0",
+        [
+          StringStruct("CompanyName", "AutoPlotSkip"),
+          # UAC 提权弹窗里「程序名称」一栏取的就是 FileDescription，
+          # 写全称会被挤成两行，这里只留程序名。
+          StringStruct("FileDescription", "AutoPlotSkip"),
+          StringStruct("FileVersion", "0.1.0.0"),
+          StringStruct("InternalName", "AutoPlotSkip"),
+          StringStruct("LegalCopyright", "Copyright (C) 2026 AutoPlotSkip"),
+          StringStruct("OriginalFilename", "AutoPlotSkip.exe"),
+          StringStruct("ProductName", "AutoPlotSkip"),
+          StringStruct("ProductVersion", "0.1.0.0"),
+        ],
+      )
+    ]),
+    VarFileInfo([VarStruct("Translation", [0x0804, 0x04B0])]),
+  ],
+)
